@@ -1,0 +1,420 @@
+Index: src/instructions/Mul.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package instructions;\r\n\r\n\r\nimport comp.Memory;\r\nimport comp.ProgramCounter;\r\nimport word.Address;\r\n\r\npublic class Mul extends BinOp {\r\n\r\n    private Address ad1;                  //TODO gör om till 2 Operander och 1 Address\r\n    private Address ad2;\r\n    private Address ad3;\r\n\r\n    public Mul(Address ad1, Address ad2,Address ad3){\r\n\r\n    }\r\n    @Override\r\n    public void execute(ProgramCounter pc, Memory m) { //TODO fixa execute\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/instructions/Mul.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/instructions/Mul.java	(date 1600944125482)
+@@ -4,19 +4,24 @@
+ import comp.Memory;
+ import comp.ProgramCounter;
+ import word.Address;
++import word.Operand;
+ 
+ public class Mul extends BinOp {
+ 
+-    private Address ad1;                  //TODO gör om till 2 Operander och 1 Address
+-    private Address ad2;
++    private Operand ad1;                  //TODO gör om till 2 Operander och 1 Address
++    private Operand ad2;
+     private Address ad3;
+ 
+-    public Mul(Address ad1, Address ad2,Address ad3){
++    public Mul(Operand ad1, Operand ad2,Address ad3){
++        this.ad1 = ad1;
++        this.ad2 = ad2;
++        this.ad3 = ad3;
+ 
+     }
+     @Override
+     public void execute(ProgramCounter pc, Memory m) { //TODO fixa execute
+-
++        ad1.getWord(m).multiply(ad2.getWord(m), m, ad3.getIndex());
++        pc.increment();
+     }
+ 
+ }
+Index: src/instructions/Print.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package instructions;\r\n\r\nimport comp.Memory;\r\nimport comp.ProgramCounter;\r\nimport word.Address;\r\n\r\npublic class Print implements Instruction {\r\n\r\n    private Address address;\r\n\r\n    @Override\r\n    public void execute(ProgramCounter pc, Memory m) {   // TODO fixa execute\r\n\r\n    }\r\n\r\n    public Print(Address address){\r\n        this.address=address;\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/instructions/Print.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/instructions/Print.java	(date 1600892582038)
+@@ -2,19 +2,23 @@
+ 
+ import comp.Memory;
+ import comp.ProgramCounter;
+-import word.Address;
++import word.Operand;
++import word.Word;
+ 
+ public class Print implements Instruction {
+ 
+-    private Address address;
++    private Operand address;
++
++    public Print(Operand address){
++        this.address=address;
++    }
+ 
+     @Override
+     public void execute(ProgramCounter pc, Memory m) {   // TODO fixa execute
+-
++        Word x = address.getWord(m);
++        x.printValue();
++        pc.increment();
+     }
+ 
+-    public Print(Address address){
+-        this.address=address;
+ 
+-    }
+ }
+Index: src/comp/Factorial.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package comp;\r\nimport word.*;\r\nimport instructions.*;\r\n\r\nclass Factorial extends Program {\r\n\t\r\n\tString s = \"hej\";\r\n\r\n    public Factorial  (String value, WordFactory wf) {\r\n        Address n = new Address(0),\r\n                fac = new Address(1);\r\n        add(new Copy(wf.word(value), n));\r\n        add(new Copy(wf.word(\"1\"), fac));\r\n        add(new JumpEq(6, n, wf.word(\"1\")));\r\n        add(new Mul(fac, n, fac));\r\n        add(new Add(n, wf.word(\"-1\"), n));\r\n        add(new Jump(2));\r\n        add(new Print(fac));\r\n        add(new Halt());\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/comp/Factorial.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/comp/Factorial.java	(date 1600944348685)
+@@ -3,9 +3,6 @@
+ import instructions.*;
+ 
+ class Factorial extends Program {
+-	
+-	String s = "hej";
+-
+     public Factorial  (String value, WordFactory wf) {
+         Address n = new Address(0),
+                 fac = new Address(1);
+Index: src/word/Word.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package word;\r\n\r\nimport comp.Memory;\r\n\r\npublic interface Word extends Operand {\r\n\r\n    void add(Operand word, Memory memory, int index);  // ska inte returnera ngt, samma med mul\r\n\r\n    void multiply(Operand word, Memory memory, int index);\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/word/Word.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/word/Word.java	(date 1600944125449)
+@@ -8,4 +8,5 @@
+ 
+     void multiply(Operand word, Memory memory, int index);
+ 
++    void printValue();
+ }
+Index: src/word/LongWord.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package word;\r\n\r\nimport comp.Memory;\r\n\r\npublic class LongWord implements Word {\r\n\r\n    private long value;\r\n\r\n    public LongWord(long value) {\r\n        this.value = value;\r\n    }\r\n\r\n    public long getValue()  {\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public void add(Operand word, Memory memory, int index) {\r\n        long sum = Long.sum(value, ((LongWord) word.getWord(memory)).getValue());\r\n        String s = String.valueOf(sum);\r\n        memory.add(index, s);\r\n    }\r\n\r\n    @Override\r\n    public void multiply(Operand word, Memory memory, int index) {\r\n        long product =  value * ((LongWord) word.getWord(memory)).getValue();\r\n        String s = String.valueOf(product);\r\n        memory.add(index, s);  // memory får väl ha att den lägger ett tal(uppdaterar Word där) eller den tar ett Word.\r\n    }\r\n\r\n\r\n    @Override\r\n    public Word getWord(Memory memory) {\r\n        return this;\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/word/LongWord.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/word/LongWord.java	(date 1600944470166)
+@@ -28,11 +28,22 @@
+         memory.add(index, s);  // memory får väl ha att den lägger ett tal(uppdaterar Word där) eller den tar ett Word.
+     }
+ 
++    @Override
++    public void printValue() {
++        System.out.println(value);
++    }
++
+ 
+     @Override
+     public Word getWord(Memory memory) {
+         return this;
+     }
+ 
++    @Override
++    public boolean checkEq(Operand o1, Memory m) {
++        Word word = o1.getWord(m);
++        LongWord bw = (LongWord) word;
++        return value == bw.getValue();
++    }
+ 
+ }
+Index: src/comp/Computer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package comp;\r\n\r\npublic class Computer {\r\n\tprivate Program prog;\r\n\tprivate Memory memory;\r\n\tprivate ProgramCounter pc = new ProgramCounter();\r\n\r\n\tpublic Computer(Memory memory) {\r\n\t\tthis.memory = memory;\r\n\t}\r\n\r\n\tpublic void load(Program program) {\r\n\t\tthis.prog = program;\r\n\t}\r\n\r\n    public void run() {\r\n\t\twhile (pc.getCounter() < prog.progSize()){\r\n\t\t\tprog.getInst(pc.getCounter()).execute(pc,memory);\r\n\t\t}\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/comp/Computer.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/comp/Computer.java	(date 1600892758639)
+@@ -1,12 +1,14 @@
+ package comp;
+ 
+ public class Computer {
++
+ 	private Program prog;
+ 	private Memory memory;
+-	private ProgramCounter pc = new ProgramCounter();
++	private ProgramCounter pc;
+ 
+ 	public Computer(Memory memory) {
+ 		this.memory = memory;
++		this.pc = new ProgramCounter();
+ 	}
+ 
+ 	public void load(Program program) {
+Index: src/instructions/Add.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package instructions;\r\n\r\nimport comp.Memory;\r\nimport comp.ProgramCounter;\r\nimport word.Address;\r\nimport word.Operand;\r\n\r\npublic class Add extends BinOp {\r\n\r\n    private Operand op1;\r\n    private Operand op2;\r\n    private Address address;\r\n\r\n    public Add(Operand op1, Operand op2, Address address) {\r\n        this.op1 = op1;\r\n        this.op2 = op2;\r\n        this.address = address;\r\n    }\r\n\r\n    @Override\r\n    public void execute(ProgramCounter pc, Memory m) {  //TODO fixa execute\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/instructions/Add.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/instructions/Add.java	(date 1600944125465)
+@@ -19,6 +19,8 @@
+ 
+     @Override
+     public void execute(ProgramCounter pc, Memory m) {  //TODO fixa execute
++        op1.getWord(m).add(op2.getWord(m), m, address.getIndex());
++        pc.increment();
+ 
+     }
+ }
+Index: src/instructions/Halt.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package instructions;\r\n\r\nimport comp.Memory;\r\nimport comp.ProgramCounter;\r\n\r\npublic class Halt implements Instruction {\r\n    @Override\r\n    public void execute(ProgramCounter pc, Memory m) {  //TODO fixa execute\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/instructions/Halt.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/instructions/Halt.java	(date 1600892582054)
+@@ -4,9 +4,10 @@
+ import comp.ProgramCounter;
+ 
+ public class Halt implements Instruction {
++
+     @Override
+     public void execute(ProgramCounter pc, Memory m) {  //TODO fixa execute
+-
++        pc.increment();
++    }
+ 
+-    }
+ }
+Index: src/instructions/Copy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package instructions;\r\n\r\nimport comp.Memory;\r\nimport comp.ProgramCounter;\r\nimport word.Address;\r\nimport word.Word;\r\n\r\npublic class Copy implements Instruction {\r\n\r\n    private Word word;\r\n    private  Address address;\r\n\r\n    public  Copy (Word word, Address address){\r\n        this.word=word;\r\n        this.address=address;\r\n\r\n    }\r\n    @Override\r\n    public void execute(ProgramCounter pc, Memory m) {   //TODO fixa execute\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/instructions/Copy.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/instructions/Copy.java	(date 1600893931275)
+@@ -3,20 +3,23 @@
+ import comp.Memory;
+ import comp.ProgramCounter;
+ import word.Address;
++import word.Operand;
+ import word.Word;
+ 
+ public class Copy implements Instruction {
+ 
+-    private Word word;
+-    private  Address address;
++    private Operand word;
++    private Address address;
+ 
+-    public  Copy (Word word, Address address){
++    public Copy (Operand word, Address address){
+         this.word=word;
+         this.address=address;
+-
+     }
++
+     @Override
+     public void execute(ProgramCounter pc, Memory m) {   //TODO fixa execute
+-
++        m.add(address.getIndex(), word.getWord(m));
++        pc.increment();
+     }
++
+ }
+Index: src/instructions/JumpEq.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package instructions;\r\n\r\nimport comp.Memory;\r\nimport comp.ProgramCounter;\r\nimport word.Address;\r\nimport word.Word;\r\n\r\npublic class JumpEq implements Instruction {\r\n\r\n    private Address address;\r\n    private Word word;\r\n    private int nextInstruction;\r\n\r\n\r\n\r\n    public JumpEq(int nextInstruction, Address address,Word word){\r\n        this.word=word;\r\n        this.address=address;\r\n        this.nextInstruction=nextInstruction;\r\n\r\n    }\r\n    @Override\r\n    public void execute(ProgramCounter pc, Memory m) {  //TODO använd getWord, vi får impl. equals i Word-klasserna\r\n        Word w1= word;\r\n        Word w2= (Word) address;\r\n        if (w1.equals(w2)){\r\n            pc.setCounter(nextInstruction);\r\n        }else{\r\n            pc.increment();\r\n        }\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/instructions/JumpEq.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/instructions/JumpEq.java	(date 1600892582054)
+@@ -2,30 +2,27 @@
+ 
+ import comp.Memory;
+ import comp.ProgramCounter;
+-import word.Address;
+-import word.Word;
++import word.Operand;
+ 
+ public class JumpEq implements Instruction {
+ 
+-    private Address address;
+-    private Word word;
++    private Operand o1;
++    private Operand o2;
+     private int nextInstruction;
+ 
+-
+-
+-    public JumpEq(int nextInstruction, Address address,Word word){
+-        this.word=word;
+-        this.address=address;
++    public JumpEq(int nextInstruction, Operand address,Operand word){
++        this.o1=word;
++        this.o2=address;
+         this.nextInstruction=nextInstruction;
+ 
+     }
++
+     @Override
+     public void execute(ProgramCounter pc, Memory m) {  //TODO använd getWord, vi får impl. equals i Word-klasserna
+-        Word w1= word;
+-        Word w2= (Word) address;
+-        if (w1.equals(w2)){
++
++        if (o1.checkEq(o2,m)) {
+             pc.setCounter(nextInstruction);
+-        }else{
++        } else {
+             pc.increment();
+         }
+ 
+Index: src/word/Address.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package word;\r\n\r\nimport comp.Memory;\r\n\r\npublic class Address implements Operand{\r\n\r\n    private int index;\r\n\r\n    public Address(int index) {\r\n        this.index = index;\r\n    }\r\n\r\n    @Override\r\n    public Word getWord(Memory memory) {\r\n        return memory.get(index).getWord(memory);\r\n    }\r\n\r\n    public int getIndex() {\r\n        return index;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/word/Address.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/word/Address.java	(date 1600876075910)
+@@ -15,6 +15,14 @@
+         return memory.get(index).getWord(memory);
+     }
+ 
++    @Override
++    public boolean checkEq(Operand o2, Memory m) {
++        Address a = (Address) o2;
++        Word w1 = getWord(m);
++        Word w2 = a.getWord(m);
++        return w1.checkEq(w2,m);
++    }
++
+     public int getIndex() {
+         return index;
+     }
+Index: src/word/Operand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package word;\r\n\r\nimport comp.Memory;\r\n\r\npublic interface Operand {\r\n\r\n    Word getWord(Memory memory);\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/word/Operand.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/word/Operand.java	(date 1600876075892)
+@@ -6,4 +6,6 @@
+ 
+     Word getWord(Memory memory);
+ 
++    boolean checkEq(Operand o2, Memory m);
++
+ }
+Index: src/word/ByteWord.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package word;\r\n\r\nimport comp.Memory;\r\n\r\npublic class ByteWord implements Word {\r\n\r\n    private byte value;\r\n\r\n    public ByteWord(byte value) {\r\n        this.value = value;\r\n    }\r\n\r\n    public byte getValue() {\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public void add(Operand word, Memory memory, int index) {\r\n        byte sum = (byte) (value + ((ByteWord) word.getWord(memory)).getValue());\r\n        String s = String.valueOf(sum);\r\n        memory.add(index, s);\r\n    }\r\n\r\n    @Override\r\n    public void multiply(Operand word, Memory memory, int index) {\r\n        byte product = (byte) (value * ((ByteWord) word.getWord(memory)).getValue());\r\n        String s = String.valueOf(product);\r\n        memory.add(index, s);\r\n\r\n    }\r\n\r\n    @Override\r\n    public Word getWord(Memory memory) {\r\n        return this;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/word/ByteWord.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/word/ByteWord.java	(date 1600944348706)
+@@ -2,6 +2,8 @@
+ 
+ import comp.Memory;
+ 
++import java.util.Objects;
++
+ public class ByteWord implements Word {
+ 
+     private byte value;
+@@ -29,6 +31,18 @@
+ 
+     }
+ 
++    @Override
++    public void printValue() {
++        System.out.println(value);
++    }
++
++    @Override
++    public boolean checkEq(Operand o1, Memory m) {
++        Word word = o1.getWord(m);
++        ByteWord bw = (ByteWord) word;
++        return value == bw.getValue();
++    }
++
+     @Override
+     public Word getWord(Memory memory) {
+         return this;
+Index: src/comp/Program.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package comp;\r\nimport java.util.*;\r\nimport instructions.*;\r\n\r\npublic class Program {\r\n\r\n\tprivate List<Instruction> instuctions = new ArrayList<Instruction>();\r\n\r\n\tpublic Program(List<Instruction> instuctions){\r\n\t\tthis.instuctions = instuctions;\r\n\t}\r\n\r\n\tpublic void add(Instruction inst) {\r\n\t\tinstuctions.add(inst);\r\n\t}\r\n\r\n\tpublic Instruction getInst(int index){\r\n\t\treturn instuctions.get(index);\r\n\t}\r\n\r\n\tpublic int progSize(){\r\n\t\treturn instuctions.size();\r\n\t}\r\n\r\n\tpublic String toString(){\r\n\t\tStringBuilder str = new StringBuilder();\r\n\t\tfor (int i = 0; i < instuctions.size(); i++){\r\n\t\t\tstr.append(i+\": \");\r\n\t\t\tstr.append(instuctions.get(i).toString());\r\n\t\t\tstr.append(\"\\n\");\r\n\t\t}\r\n\t\treturn str.toString();\r\n\t}\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/comp/Program.java	(revision b5b2d9b629bb5ab97753b73c5dc160c1f1251a60)
++++ src/comp/Program.java	(date 1600895193324)
+@@ -4,29 +4,29 @@
+ 
+ public class Program {
+ 
+-	private List<Instruction> instuctions = new ArrayList<Instruction>();
++	private List<Instruction> instructions;
+ 
+-	public Program(List<Instruction> instuctions){
+-		this.instuctions = instuctions;
++	public Program(){
++		this.instructions = new ArrayList<>();
+ 	}
+ 
+ 	public void add(Instruction inst) {
+-		instuctions.add(inst);
++		instructions.add(inst);
+ 	}
+ 
+ 	public Instruction getInst(int index){
+-		return instuctions.get(index);
++		return instructions.get(index);
+ 	}
+ 
+ 	public int progSize(){
+-		return instuctions.size();
++		return instructions.size();
+ 	}
+ 
+ 	public String toString(){
+ 		StringBuilder str = new StringBuilder();
+-		for (int i = 0; i < instuctions.size(); i++){
++		for (int i = 0; i < instructions.size(); i++){
+ 			str.append(i+": ");
+-			str.append(instuctions.get(i).toString());
++			str.append(instructions.get(i).toString());
+ 			str.append("\n");
+ 		}
+ 		return str.toString();

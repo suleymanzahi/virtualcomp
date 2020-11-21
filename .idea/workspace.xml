@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3743cb3b-ecef-409e-81b2-85d439b56a5d" name="Default Changelist" comment="Removed BinOp and updated README">
+      <change beforePath="$PROJECT_DIR$/src/comp/Factorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comp/Factorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comp/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comp/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/word/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/word/Word.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hgd0CyuZout4cqGagHWVvE8htI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/OMD/xl" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="comp.Main" />
+      <module name="computer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="comp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Memory" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="comp.Memory" />
+      <module name="computer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="comp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Memory" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3743cb3b-ecef-409e-81b2-85d439b56a5d" name="Default Changelist" comment="" />
+      <created>1600436443732</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600436443732</updated>
+    </task>
+    <task id="LOCAL−00001" summary="Added initial code for package word">
+      <created>1600439267662</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1600439267662</updated>
+    </task>
+    <task id="LOCAL−00002" summary="Added Word classes and their respective factories">
+      <created>1600450004443</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1600450004443</updated>
+    </task>
+    <task id="LOCAL−00003" summary="Added ProgramCounter class">
+      <created>1600724660564</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1600724660564</updated>
+    </task>
+    <task id="LOCAL−00004" summary="Fixed Add class">
+      <created>1600790905269</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1600790905269</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Fixed word package according to design specs">
+      <created>1600806106290</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1600806106290</updated>
+    </task>
+    <task id="LOCAL−00006" summary="Fixed Memory class">
+      <created>1600806200398</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1600806200398</updated>
+    </task>
+    <task id="LOCAL−00007" summary="Fixed Memory class">
+      <created>1600807533204</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1600807533204</updated>
+    </task>
+    <task id="LOCAL−00008" summary="Added TODO-comments for what's left">
+      <created>1600809279426</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1600809279426</updated>
+    </task>
+    <task id="LOCAL−00009" summary="Main class">
+      <created>1600947887061</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1600947887061</updated>
+    </task>
+    <task id="LOCAL−00010" summary="Fixed changing value in Word classes, other fixes">
+      <created>1601243407288</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1601243407288</updated>
+    </task>
+    <task id="LOCAL−00011" summary="Additional fixes">
+      <created>1601324735009</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1601324735009</updated>
+    </task>
+    <task id="LOCAL−00012" summary="Removed BinOp and updated README">
+      <created>1601330982717</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1601330982717</updated>
+    </task>
+    <task id="LOCAL−00013" summary="Fixed issue with add and multiply methods">
+      <created>1601843001292</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1601843001292</updated>
+    </task>
+    <task id="LOCAL−00014" summary="Added template method for Add and Mul">
+      <created>1601843066021</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1601843066021</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added initial code for package word" />
+    <MESSAGE value="Added Word classes and their respective factories" />
+    <MESSAGE value="Added ProgramCounter class" />
+    <MESSAGE value="Fixed Add class" />
+    <MESSAGE value="Fixed word package according to design specs" />
+    <MESSAGE value="Fixed Memory class" />
+    <MESSAGE value="Added TODO-comments for what's left" />
+    <MESSAGE value="Main class" />
+    <MESSAGE value="Fixed changing value in Word classes, other fixes" />
+    <MESSAGE value="Additional fixes" />
+    <MESSAGE value="Removed BinOp and updated README" />
+    <MESSAGE value="Fixed issue with add and multiply methods" />
+    <MESSAGE value="Added template method for Add and Mul" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added template method for Add and Mul" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1601842104941">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1601842104941" />
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1600724928878">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1600724928878" />
+    <state x="473" y="237" key="#com.intellij.refactoring.memberPullUp.PullUpDialog" timestamp="1600793950095">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="473" y="237" key="#com.intellij.refactoring.memberPullUp.PullUpDialog/0.0.1536.824@0.0.1536.824" timestamp="1600793950095" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1601843073077">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1601843073077" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1601396068019">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601396068019" />
+    <state width="1493" height="602" key="GridCell.Tab.0.bottom" timestamp="1601924533664">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="602" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601924533664" />
+    <state width="1493" height="602" key="GridCell.Tab.0.center" timestamp="1601924533664">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="602" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601924533664" />
+    <state width="1493" height="602" key="GridCell.Tab.0.left" timestamp="1601924533664">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="602" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601924533664" />
+    <state width="1493" height="602" key="GridCell.Tab.0.right" timestamp="1601924533664">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="602" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601924533664" />
+    <state width="1493" height="358" key="GridCell.Tab.1.bottom" timestamp="1601843180716">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="358" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601843180716" />
+    <state width="1493" height="358" key="GridCell.Tab.1.center" timestamp="1601843180716">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="358" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1601843180716" />
+    <state width="1493" height="358" key="GridCell.Tab.1.left" timestamp="1601843180716">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="358" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1601843180716" />
+    <state width="1493" height="358" key="GridCell.Tab.1.right" timestamp="1601843180716">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="358" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1601843180716" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1600807888426">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1600807888426" />
+    <state x="475" y="196" key="MultipleFileMergeDialog" timestamp="1600947908449">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="475" y="196" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1600947908449" />
+    <state x="549" y="115" key="RollbackChangesDialog" timestamp="1600806018354">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1600806018354" />
+    <state x="-6" y="0" width="1540" height="709" key="SettingsEditor" timestamp="1600895372705">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="-6" y="0" width="1540" height="709" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600895372705" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1601843067745">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1601843067745" />
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600967214288">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1600967214288" />
+    <state x="487" y="201" key="git4idea.merge.GitPullDialog" timestamp="1600451282535">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="487" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1600451282535" />
+    <state x="545" y="161" key="refactoring.ChangeSignatureDialog" timestamp="1600793185565">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="545" y="161" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1600793185565" />
+    <state x="491" y="324" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1600628153067">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="491" y="324" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1536.824@0.0.1536.824" timestamp="1600628153067" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/comp/Main.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
